@@ -20,7 +20,7 @@ const AIWidgetComponent = ({ companyId, parent}) => {
 
             if (!localStorage.getItem(visitKey)) {
                 localStorage.setItem(visitKey, 'true');
-                fetch('http://localhost:4004/track-visit', {
+                fetch('https://www.esher.backend.intuitionlabs.com.ng/track-visit', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ userId, companyId, url: currentUrl, timestamp: new Date().toISOString() }),
@@ -45,7 +45,7 @@ const AIWidgetComponent = ({ companyId, parent}) => {
         function loadScript() {
             return new Promise((resolve, reject) => {
                 const script = document.createElement('script');
-                script.src = `http://localhost:4004/widget.js/${companyId}`;
+                script.src = `https://www.esher.backend.intuitionlabs.com.ng/widget.js/${companyId}`;
                 script.async = true;
                 script.onload = resolve;
                 script.onerror = reject;
